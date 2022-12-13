@@ -1,0 +1,9 @@
+<div class="row mt-4">
+    <div class="card p-2 m-2" style="width: 18rem;" *ngFor="let char of characters">
+      <img class="card-img-top" src="{{char.image}}" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text">{{char.name}}</p>
+        <button class="btn btn-warning" routerLink="/character/{{char.id}}">See more</button>
+      </div>
+    </div>
+</div>
