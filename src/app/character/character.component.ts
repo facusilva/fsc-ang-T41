@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestService } from '../rest.service';
 
 @Component({
@@ -10,14 +10,18 @@ import { RestService } from '../rest.service';
 })
 export class CharacterComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute, private RestService:RestService) {}
+  constructor(private route: ActivatedRoute, private RestService:RestService, private router: Router) {}
 
   character:any;
+  id:any;
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.RestService.getCharacters(`https://rickandmortyapi.com/api/character/`+id).subscribe( result => this.character = result );
-
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.RestService.getCharacter(this.id).subscribe( result => this.character = result );
 }
 
+  borrarPersonaje():void{
+    this.RestService.deleteCharacter(this.id).subscribe();
+    this.router.navigate(['/characters']);
+  }
 }

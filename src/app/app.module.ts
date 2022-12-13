@@ -9,6 +9,9 @@ import { CharactersComponent } from './characters/characters.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CharacterComponent } from './character/character.component'
+import { FormsModule } from '@angular/forms';
+import { AddCharacterComponent } from './add-character/add-character.component';
+import { UpdateCharacterComponent } from './update-character/update-character.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { CharacterComponent } from './character/character.component'
     NavComponent,
     CharactersComponent,
     AboutComponent,
-    CharacterComponent
+    CharacterComponent,
+    AddCharacterComponent,
+    UpdateCharacterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

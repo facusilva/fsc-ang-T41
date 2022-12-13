@@ -1,9 +1,11 @@
 <div class="row mt-4">
+    <button class="btn btn-success my-2" routerLink="/add">Add Character</button>
     <div class="card p-2 m-2" style="width: 18rem;" *ngFor="let char of characters">
       <img class="card-img-top" src="{{char.image}}" alt="Card image cap">
       <div class="card-body">
         <p class="card-text">{{char.name}}</p>
-        <button class="btn btn-warning" routerLink="/character/{{char.id}}">See more</button>
+        <button class="btn btn-warning mx-2" routerLink="/character/{{char.id}}">See more</button>
+        <button class="btn btn-success" routerLink="/update/{{char.id}}">Edit </button>
       </div>
     </div>
 </div>
